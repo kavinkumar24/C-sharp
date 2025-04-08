@@ -1,0 +1,15 @@
+E:\Presidio-Training\C-sharp\task-9\bin\Debug\net9.0\task-9.exe
+E:\Presidio-Training\C-sharp\task-9\bin\Debug\net9.0\task-9.deps.json
+E:\Presidio-Training\C-sharp\task-9\bin\Debug\net9.0\task-9.runtimeconfig.json
+E:\Presidio-Training\C-sharp\task-9\bin\Debug\net9.0\task-9.dll
+E:\Presidio-Training\C-sharp\task-9\bin\Debug\net9.0\task-9.pdb
+E:\Presidio-Training\C-sharp\task-9\obj\Debug\net9.0\task-9.GeneratedMSBuildEditorConfig.editorconfig
+E:\Presidio-Training\C-sharp\task-9\obj\Debug\net9.0\task-9.AssemblyInfoInputs.cache
+E:\Presidio-Training\C-sharp\task-9\obj\Debug\net9.0\task-9.AssemblyInfo.cs
+E:\Presidio-Training\C-sharp\task-9\obj\Debug\net9.0\task-9.csproj.CoreCompileInputs.cache
+E:\Presidio-Training\C-sharp\task-9\obj\Debug\net9.0\task-9.sourcelink.json
+E:\Presidio-Training\C-sharp\task-9\obj\Debug\net9.0\task-9.dll
+E:\Presidio-Training\C-sharp\task-9\obj\Debug\net9.0\refint\task-9.dll
+E:\Presidio-Training\C-sharp\task-9\obj\Debug\net9.0\task-9.pdb
+E:\Presidio-Training\C-sharp\task-9\obj\Debug\net9.0\task-9.genruntimeconfig.cache
+E:\Presidio-Training\C-sharp\task-9\obj\Debug\net9.0\ref\task-9.dll
