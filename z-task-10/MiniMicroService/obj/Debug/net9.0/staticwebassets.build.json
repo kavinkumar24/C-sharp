@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "T4/3GI6PMs1hEo7rVwA40P73C/W0TGIdmE2w1cCUK5g=",
+  "Source": "MiniMicroService",
+  "BasePath": "_content/MiniMicroService",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
