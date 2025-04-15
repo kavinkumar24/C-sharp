@@ -229,6 +229,69 @@ namespace MiniMicroservice.Controllers
 - Find that product, and remove from the db `Products.Remove`.
 - Once removed NoContent tells, the request is success but no content is returned.
 
+## MiddleWare
+
+- MiddleWare is like a series of gates that every HTTP request goes through.
+
+
+```c#
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Net;
+using System.Text.Json;
+using System.Threading.Tasks;
+
+namespace MiniMicroservice.Middleware
+{
+    public class ExceptionHandlingMiddleware
+    {
+        private readonly RequestDelegate _next;
+        private readonly ILogger<ExceptionHandlingMiddleware> _logger;
+
+        public ExceptionHandlingMiddleware(RequestDelegate next, ILogger<ExceptionHandlingMiddleware> logger)
+        {
+            _next = next;
+            _logger = logger;
+        }
+
+        public async Task Invoke(HttpContext context)
+        {
+             _logger.LogInformation("ExceptionHandlingMiddleware activated");
+            try
+            {
+                await _next(context);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An unhandled exception occurred");
+
+                context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                context.Response.ContentType = "application/json";
+
+                var response = new
+                {
+                    StatusCode = context.Response.StatusCode,
+                    Message = "An unexpected error occurred. Please try again later.",
+                    Detailed = ex.Message
+                };
+
+                var json = JsonSerializer.Serialize(response);
+
+                await context.Response.WriteAsync(json);
+            }
+        }
+    }
+}
+```
+
+- `RequestDelegate _next` - Reference to next part in the pipeline.
+- `ILogger<ExceptionHandlingMiddleware> _logger` - Log the Information and Debug.
+- `HttpContext` - Runs for every single HTTP request.
+- Created a Object error and convert that into json using `JsonSerializer.Serialize(response)` and written back to the response.
+
+- `ExceptionMiddlewareExtensions.cs` - This file makes it easy way for importing MiddleWare to the main entry point.
+
 ## What is Swagger
 
 - It is a suite of open source tools and a specification used to design, document and consume restful api.
