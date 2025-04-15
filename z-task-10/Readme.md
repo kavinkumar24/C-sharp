@@ -233,7 +233,6 @@ namespace MiniMicroservice.Controllers
 
 - MiddleWare is like a series of gates that every HTTP request goes through.
 
-
 ```c#
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
@@ -291,6 +290,48 @@ namespace MiniMicroservice.Middleware
 - Created a Object error and convert that into json using `JsonSerializer.Serialize(response)` and written back to the response.
 
 - `ExceptionMiddlewareExtensions.cs` - This file makes it easy way for importing MiddleWare to the main entry point.
+
+### Program.cs
+
+```c#
+
+using Microsoft.EntityFrameworkCore;
+using MiniMicroservice.Models;
+using MiniMicroservice.Data;
+using Microsoft.EntityFrameworkCore;
+using MiniMicroservice.Middleware;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlite("Data Source=products.db"));
+
+
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+
+app.UseGlobalExceptionHandler();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+
+app.MapControllers();
+
+app.Run();
+```
+
+- Configure all the `extensions`, `database`, `middleware`, `controllers`, `https directions`, `swaggerUI`.
 
 ## What is Swagger
 
