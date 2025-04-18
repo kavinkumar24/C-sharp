@@ -13,7 +13,7 @@
 
 ## Events
 
-- It is a speical type of delegate, it is used for signal thaat something has happened.
+- It is a speical type of delegate, it is used for signal that something has happened.
 - It is a mechanism for communication between objects.
 
 ### syntax
