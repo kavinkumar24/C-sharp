@@ -33,7 +33,7 @@ _When the event is trigger the methods subscribed are executed along with that._
 
 ## Multi casting of a delegate
 
-- It is an extension of normal delegate, it helsp to point more than one method in a single call.
+- It is an extension of normal delegate, it helps to point more than one method in a single call.
 
 
 ## Program
